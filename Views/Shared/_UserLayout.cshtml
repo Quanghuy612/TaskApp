@@ -1,0 +1,12 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<div class="mt-4">
+    <h2 class="text-primary mb-4">Users Management</h2>
+    @RenderBody()
+</div>
+@section Scripts {
+    <script src="~/js/user.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+}

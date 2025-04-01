@@ -1,0 +1,115 @@
+﻿@model List<TaskApp.Models.Project>
+
+@{
+    Layout = "~/Views/Shared/_ProjectLayout.cshtml";
+}
+
+<div>
+    <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#createProjectModal">
+        <i class="fas fa-plus-circle"></i> Create New Project
+    </button>
+
+    <div class="row">
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var project in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-3 shadow-sm position-relative">
+                        <div class="card-header bg-secondary-subtle">
+                            <h5 class="card-title">@project.Name</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">@project.Description</p>
+
+                            <button type="button" class="btn btn-primary toggleTasksBtn" data-target="#taskDropdown_@project.Id">
+                                View Tasks
+                            </button>
+                        </div>
+                        <div class="task-dropdown position-absolute w-100 bg-white border rounded shadow-sm p-2"
+                             id="taskDropdown_@project.Id"
+                             style="display: none; top: 100%; left: 0; z-index: 10;">
+                             <table class="table table-hover table-striped">
+                                 <tr>
+                                    <th class="bg-secondary-subtle">Title</th>
+                                    <th class="bg-secondary-subtle">Description</th>
+                                    <th class="bg-secondary-subtle">Due date</th>
+                                    <th class="bg-secondary-subtle">Status</th>
+                                </tr>
+                                @foreach (var task in project.TaskList)
+                                {
+                                    <tr>
+                                        <td>@task.Title</td>
+                                        <td>@task.Description</td>
+                                        <td>@task.DueDate</td>
+                                        <td class="@(task.Status.ToString() == "Pending" ? "text-warning" : task.Status.ToString() == "InProgress" ? "text-primary" : "text-success")">
+                                            @task.Status
+                                        </td>
+                                    </tr>
+                                }
+                             </table>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12 text-center">
+                <div class="alert alert-warning" role="alert">
+                    <i class="fas fa-exclamation-circle"></i> No projects available.
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="modal fade" id="createProjectModal" tabindex="-1" aria-labelledby="createProjectModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createProjectModalLabel"><i class="fas fa-plus-circle"></i> Create Project</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="createProjectForm">
+                    <div class="mb-3">
+                        <label for="projectName" class="form-label">Project Name</label>
+                        <input type="text" class="form-control" id="projectName" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="projectDescription" class="form-label">Project Description</label>
+                        <textarea class="form-control" id="projectDescription"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <hr />
+                        <label for="tasksTable" class="form-label"><b>Tasks</b></label>
+                        <table class="table" id="tasksTable">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Task Name</th>
+                                    <th class="text-center">Task Description</th>
+                                    <th class="text-center">Due date</th>
+                                    <th class="text-center">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="4">
+                                        <button type="button" class="btn-sm btn btn-primary w-100" id="addTaskRow">Add Task</button>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-success">Create Project</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

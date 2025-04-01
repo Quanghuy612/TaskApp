@@ -1,0 +1,52 @@
+﻿@model List<TaskApp.Models.Task>
+
+@{
+    Layout = "~/Views/Shared/_TaskLayout.cshtml";
+}
+
+<div>
+    @if (Model != null && Model.Any())
+    {
+        <table class="table table-hover table-stripped">
+            <thead>
+                <tr>
+                    <th class="bg-info-subtle">No.</th>
+                    <th class="bg-info-subtle">Title</th>
+                    <th class="bg-info-subtle">Description</th>
+                    <th class="bg-info-subtle">DueDate</th>
+                    <th class="bg-info-subtle">Project</th>
+                    <th class="bg-info-subtle">Assignee</th>
+                    <th class="bg-info-subtle">Status</th>
+                    <th class="bg-info-subtle">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var task in Model)
+                {
+                    <tr>
+                        <td></td>
+                        <td>@task.Title</td>
+                        <td>@task.Description</td>
+                        <td>@task.DueDate</td>
+                        <td>@task.ProjectId</td>
+                        <td>@task.UserId</td>
+                        <td>@task.Status</td>
+                        <td>
+                            <button class="btn btn-sm btn-primary"></button>
+                            <button class="btn btn-sm btn-success"></button>
+                            <button class="btn btn-sm btn-danger"></button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="col-12 text-center">
+            <div class="alert alert-warning" role="alert">
+                <i class="fas fa-exclamation-circle"></i> No tasks available.
+            </div>
+        </div>
+    }
+</div>

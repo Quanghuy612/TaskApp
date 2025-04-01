@@ -1,0 +1,110 @@
+﻿@model List<TaskApp.Models.User>
+
+@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div>
+    <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#createUserModal">
+        <i class="fas fa-user-plus"></i> Create New User
+    </button>
+
+    <div class="row">
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var user in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-3 shadow-sm">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-5 d-flex justify-content-center">
+                                    <img src="@user.ImgPath" class="card-img img-fluid w-100 rounded-circle" style="max-width: 150px;max-height: 150px;" alt="User Image">
+                                </div>
+                                <div class="col-md-7">
+                                    <p><h5 class="card-title"><i class="fas fa-user"></i> @user.FullName</h5></p>
+                                    <p class="card-text"><strong><i class="fas fa-envelope"></i> Email:</strong> @user.Email</p>
+                                    <p class="card-text"><strong><i class="fas fa-user-tag"></i> Role:</strong> @user.Role</p>
+                                    <button class="btn btn-primary view-user" data-userid="@user.Id">
+                                        <i class="fas fa-eye"></i> View Profile
+                                    </button>
+                                    <button href="#" class="btn btn-danger delete-user" data-userid="@user.Id"><i class="fas fa-trash"></i> Delete user</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12 text-center">
+                <div class="alert alert-warning" role="alert">
+                    <i class="fas fa-exclamation-circle"></i> No users available.
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="modal fade" id="createUserModal" tabindex="-1" aria-labelledby="createUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createUserModalLabel"><i class="fas fa-user-plus"></i> Create New User</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="createUserForm">
+                    <div class="mb-3">
+                        <label for="username" class="form-label"><i class="fas fa-user"></i> Username</label>
+                        <input type="text" class="form-control" id="username" name="Username" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label"><i class="fas fa-lock"></i> Password</label>
+                        <input type="password" class="form-control" id="password" name="Password" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label"><i class="fas fa-user"></i> Full Name</label>
+                        <input type="text" class="form-control" id="fullName" name="FullName" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" class="form-control" id="email" name="Email">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="address" class="form-label"><i class="fas fa-map-marker-alt"></i> Address</label>
+                        <input type="text" class="form-control" id="address" name="Address">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="role" class="form-label"><i class="fas fa-user-tag"></i> Role</label>
+                        <select class="form-select" id="role" name="Role" required>
+                            <option value="Admin">Admin</option>
+                            <option value="User">User</option>
+                            <option value="Manager">Manager</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="imgPath" class="form-label"><i class="fas fa-image"></i> Upload Profile Picture</label>
+                        <input type="text" class="form-control" id="imgPath" name="ImgPath" placeholder="Enter image URL">
+                    </div>
+
+                    <div class="text-end">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Save User
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
