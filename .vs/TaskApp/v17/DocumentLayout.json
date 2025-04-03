@@ -1,17 +1,25 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Programing\\13. MVC dotnet\\TaskApp\\",
+  "WorkspaceRootPath": "E:\\Programing\\13. MVC dotnet\\TaskAppGit\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F370B5BC-27DA-4008-AFDD-ED9B47F2E9D2}|TaskApp.csproj|e:\\programing\\13. mvc dotnet\\taskapp\\views\\tasks\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{F370B5BC-27DA-4008-AFDD-ED9B47F2E9D2}|TaskApp.csproj|e:\\programing\\13. mvc dotnet\\taskappgit\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F370B5BC-27DA-4008-AFDD-ED9B47F2E9D2}|TaskApp.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F370B5BC-27DA-4008-AFDD-ED9B47F2E9D2}|TaskApp.csproj|e:\\programing\\13. mvc dotnet\\taskappgit\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F370B5BC-27DA-4008-AFDD-ED9B47F2E9D2}|TaskApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F370B5BC-27DA-4008-AFDD-ED9B47F2E9D2}|TaskApp.csproj|e:\\programing\\13. mvc dotnet\\taskappgit\\views\\tasks\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F370B5BC-27DA-4008-AFDD-ED9B47F2E9D2}|TaskApp.csproj|solutionrelative:views\\tasks\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F370B5BC-27DA-4008-AFDD-ED9B47F2E9D2}|TaskApp.csproj|e:\\programing\\13. mvc dotnet\\taskapp\\models\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F370B5BC-27DA-4008-AFDD-ED9B47F2E9D2}|TaskApp.csproj|solutionrelative:models\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F370B5BC-27DA-4008-AFDD-ED9B47F2E9D2}|TaskApp.csproj|e:\\programing\\13. mvc dotnet\\taskappgit\\wwwroot\\js\\tasks.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{F370B5BC-27DA-4008-AFDD-ED9B47F2E9D2}|TaskApp.csproj|solutionrelative:wwwroot\\js\\tasks.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F370B5BC-27DA-4008-AFDD-ED9B47F2E9D2}|TaskApp.csproj|e:\\programing\\13. mvc dotnet\\taskapp\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F370B5BC-27DA-4008-AFDD-ED9B47F2E9D2}|TaskApp.csproj|e:\\programing\\13. mvc dotnet\\taskappgit\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F370B5BC-27DA-4008-AFDD-ED9B47F2E9D2}|TaskApp.csproj|solutionrelative:controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -26,13 +34,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "TasksController.cs",
-              "DocumentMoniker": "E:\\Programing\\13. MVC dotnet\\TaskApp\\Controllers\\TasksController.cs",
+              "DocumentMoniker": "E:\\Programing\\13. MVC dotnet\\TaskAppGit\\Controllers\\TasksController.cs",
               "RelativeDocumentMoniker": "Controllers\\TasksController.cs",
-              "ToolTip": "E:\\Programing\\13. MVC dotnet\\TaskApp\\Controllers\\TasksController.cs",
+              "ToolTip": "E:\\Programing\\13. MVC dotnet\\TaskAppGit\\Controllers\\TasksController.cs",
               "RelativeToolTip": "Controllers\\TasksController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAiwGQAAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-01T16:12:21.472Z",
               "IsPinned": true,
@@ -40,26 +48,53 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Task.cs",
-              "DocumentMoniker": "E:\\Programing\\13. MVC dotnet\\TaskApp\\Models\\Task.cs",
-              "RelativeDocumentMoniker": "Models\\Task.cs",
-              "ToolTip": "E:\\Programing\\13. MVC dotnet\\TaskApp\\Models\\Task.cs",
-              "RelativeToolTip": "Models\\Task.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T16:20:54.293Z",
+              "DocumentIndex": 3,
+              "Title": "tasks.js",
+              "DocumentMoniker": "E:\\Programing\\13. MVC dotnet\\TaskAppGit\\wwwroot\\js\\tasks.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\tasks.js",
+              "ToolTip": "E:\\Programing\\13. MVC dotnet\\TaskAppGit\\wwwroot\\js\\tasks.js",
+              "RelativeToolTip": "wwwroot\\js\\tasks.js",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAiwHUAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-04-02T16:17:56.348Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "E:\\Programing\\13. MVC dotnet\\TaskAppGit\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "E:\\Programing\\13. MVC dotnet\\TaskAppGit\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB8AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-03T01:23:16.637Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\Programing\\13. MVC dotnet\\TaskAppGit\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "E:\\Programing\\13. MVC dotnet\\TaskAppGit\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACAAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T01:22:24.065Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "E:\\Programing\\13. MVC dotnet\\TaskApp\\Views\\Tasks\\Index.cshtml",
+              "DocumentMoniker": "E:\\Programing\\13. MVC dotnet\\TaskAppGit\\Views\\Tasks\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Tasks\\Index.cshtml",
-              "ToolTip": "E:\\Programing\\13. MVC dotnet\\TaskApp\\Views\\Tasks\\Index.cshtml",
+              "ToolTip": "E:\\Programing\\13. MVC dotnet\\TaskAppGit\\Views\\Tasks\\Index.cshtml",
               "RelativeToolTip": "Views\\Tasks\\Index.cshtml",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAiwCUAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAcwDUAAACVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-01T16:18:00.967Z",
               "EditorCaption": ""

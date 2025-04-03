@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Programing\\13. MVC dotnet\\TaskApp\\TaskApp.csproj": {}
+    "E:\\Programing\\13. MVC dotnet\\TaskAppGit\\TaskApp.csproj": {}
   },
   "projects": {
-    "E:\\Programing\\13. MVC dotnet\\TaskApp\\TaskApp.csproj": {
+    "E:\\Programing\\13. MVC dotnet\\TaskAppGit\\TaskApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Programing\\13. MVC dotnet\\TaskApp\\TaskApp.csproj",
+        "projectUniqueName": "E:\\Programing\\13. MVC dotnet\\TaskAppGit\\TaskApp.csproj",
         "projectName": "TaskApp",
-        "projectPath": "E:\\Programing\\13. MVC dotnet\\TaskApp\\TaskApp.csproj",
+        "projectPath": "E:\\Programing\\13. MVC dotnet\\TaskAppGit\\TaskApp.csproj",
         "packagesPath": "C:\\Users\\Top G\\.nuget\\packages\\",
-        "outputPath": "E:\\Programing\\13. MVC dotnet\\TaskApp\\obj\\",
+        "outputPath": "E:\\Programing\\13. MVC dotnet\\TaskAppGit\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

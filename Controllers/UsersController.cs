@@ -95,5 +95,25 @@ namespace TaskApp.Controllers
             return Json(new { success = true, message = "User deleted successfully" });
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Search(string term)
+        {
+            if (string.IsNullOrWhiteSpace(term))
+            {
+                return Json(new List<object>());
+            }
+
+            var users = await db.Users
+                .Where(u => u.FullName.ToLower().Contains(term.ToLower()))
+                .Take(10)
+                .Select(u => new {
+                    id = u.Id,
+                    name = u.FullName,
+                    email = u.Email
+                }).ToListAsync();
+
+            return Json(users);
+        }
+
     }
 }

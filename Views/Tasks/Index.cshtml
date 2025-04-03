@@ -1,4 +1,4 @@
-﻿@model List<TaskApp.Models.Task>
+﻿@model IEnumerable<TaskApp.DTO.TaskDTO>
 
 @{
     Layout = "~/Views/Shared/_TaskLayout.cshtml";
@@ -10,6 +10,7 @@
         <table class="table table-hover table-stripped">
             <thead>
                 <tr>
+                    <th class="bg-info-subtle"></th>
                     <th class="bg-info-subtle">No.</th>
                     <th class="bg-info-subtle">Title</th>
                     <th class="bg-info-subtle">Description</th>
@@ -21,22 +22,61 @@
                 </tr>
             </thead>
             <tbody>
+                @{
+                    int index = 1;
+                }
                 @foreach (var task in Model)
                 {
                     <tr>
-                        <td></td>
+                        <td class="text-center">
+                            <button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#taskModal"
+                                    data-taskid="@task.Id"
+                                    data-title="@task.Title"
+                                    data-description="@task.Description"
+                                    data-duedate="@task.DueDate?.ToString("yyyy-MM-dd") ?? " ""
+                                    data-projectname="@task.ProjectName"
+                                    data-userfullname="@task.UserFullName"
+                                    data-status="@task.Status">
+                                <i class="fa fa-eye"></i>
+                            </button>
+                        </td>
+                        <td>@index</td>
                         <td>@task.Title</td>
                         <td>@task.Description</td>
                         <td>@task.DueDate</td>
-                        <td>@task.ProjectId</td>
-                        <td>@task.UserId</td>
-                        <td>@task.Status</td>
+                        <td>@task.ProjectName</td>
                         <td>
-                            <button class="btn btn-sm btn-primary"></button>
-                            <button class="btn btn-sm btn-success"></button>
-                            <button class="btn btn-sm btn-danger"></button>
+                            <span class="@(task.UserFullName == "Unassigned" ? "badge bg-danger" : "")">
+                                @task.UserFullName
+                            </span>
+                        </td>
+                        <td>
+                            <span class="badge @(task.Status == "Completed" ? "bg-success" :  task.Status == "InProgress" ? "bg-primary" : "bg-danger")">
+                                @task.Status
+                            </span>
+                        </td>
+                        <td>
+                            @if (task.UserId == null)
+                            {
+                                <button class="btn btn-sm btn-primary assign-user-btn" data-taskid="@task.Id">
+                                    <i class="fa fa-pencil"></i>
+                                </button>
+                            }
+                            else
+                            {
+                                @if (task.Status != "Completed" && task.Status != "Cancelled")
+                                {
+                                    <button class="btn btn-sm btn-success complete-btn" data-task-id="@task.Id" title="Complete">
+                                        <i class="fa fa-check"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-danger cancel-btn" data-task-id="@task.Id" title="Cancel">
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                }
+                            }
                         </td>
                     </tr>
+                    index++;
                 }
             </tbody>
         </table>
@@ -49,4 +89,78 @@
             </div>
         </div>
     }
+</div>
+<div class="modal fade" id="assignUserModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex justify-content-between">
+                <h4 class="modal-title" id="assignUserModalLabel">Assign User</h4>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="taskIdToAssign" />
+                <div class="mb-3">
+                    <label for="userSearch">Search Users:</label>
+                    <input type="text" class="form-control" id="userSearch" placeholder="Type to search users...">
+                </div>
+                <div id="userSearchResults" class="list-group" style="max-height: 300px; overflow-y: auto;">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="confirmAssign">Assign</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="taskModal" tabindex="-1" role="dialog" aria-labelledby="taskModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-flex justify-content-between">
+                <h5 class="modal-title" id="taskModalLabel">Task Details</h5>
+                <button class="btn btn-danger" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="taskForm">
+                    <div class="mb-3">
+                        <label for="taskTitle">Title</label>
+                        <input type="text" class="form-control" id="taskTitle" name="Title" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="taskDescription">Description</label>
+                        <textarea class="form-control" id="taskDescription" name="Description"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="taskDueDate">Due Date</label>
+                        <input type="date" class="form-control" id="taskDueDate" name="DueDate" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="taskProjectName">Project Name</label>
+                        <input type="text" class="form-control" id="taskProjectName" name="ProjectName" readonly/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="taskUserFullName">Assigned User</label>
+                        <input type="text" class="form-control" id="taskUserFullName" name="UserFullName" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="taskStatus">Status</label>
+                        <select class="form-control" id="taskStatus" name="Status">
+                            <option value="Completed">Completed</option>
+                            <option value="InProgress">In Progress</option>
+                            <option value="Pending">Pending</option>
+                        </select>
+                    </div>
+                    <input type="hidden" id="taskId" name="TaskId" />
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveTaskBtn">Save Changes</button>
+            </div>
+        </div>
+    </div>
 </div>

@@ -13,7 +13,7 @@ namespace TaskApp.Models
 
         public string? Description { get; set; }
 
-        public TaskStatus Status { get; set; } = TaskStatus.Pending;
+        public string Status { get; set; } = "Pending";
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
@@ -24,12 +24,5 @@ namespace TaskApp.Models
 
         [ForeignKey("Project")]
         public int ProjectId { get; set; }
-    }
-
-    public enum TaskStatus
-    {
-        Pending,
-        InProgress,
-        Completed
     }
 }
